@@ -21,7 +21,7 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #f0f0f0;
+    background-color: #FFF;
 }
 
 #container {
@@ -31,8 +31,11 @@ body {
     cursor: move;
     text-align: center;
     color: #fff;
-    border: #aaa 1px solid;
+    border: #f0f0f0 1px solid;
     display: block;
+    padding: 10px;
+    background-color: #eeefed;
+    border-radius: 6px;
 }
 
 #container.movable {
