@@ -3,21 +3,21 @@
 // --------------------------------------------------------------------
 
 (function($) {
-  $.fn.drags = function(opt) {
+  $.fn.drags = function(action) {
 
-    opt = $.extend({handle:"",cursor:"move"}, opt);
+    action = $.extend({handle:"",cursor:"move"}, action);
 
-    if(opt.handle === "") {
+    if(action.handle === "") {
       var $el = this;
     } else {
-      var $el = this.find(opt.handle);
+      var $el = this.find(action.handle);
     }
 
-    return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
-      if(opt.handle === "") {
+    return $el.css('cursor', action.cursor).on("mousedown", function(e) {
+      if(action.handle === "") {
         var $drag = $(this).addClass('draggable');
       } else {
-        var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
+        var $drag = $(this).addClass('handle-active').parent().addClass('draggable');
       }
       var z_idx = $drag.css('z-index'),
         drg_h = $drag.outerHeight(),
@@ -33,10 +33,10 @@
         });
       });
     }).on("mouseup", function() {
-      if(opt.handle === "") {
+      if(action.handle === "") {
         $(this).removeClass('draggable');
       } else {
-        $(this).removeClass('active-handle').parent().removeClass('draggable');
+        $(this).removeClass('handle-active').parent().removeClass('draggable');
       }
     });
 
